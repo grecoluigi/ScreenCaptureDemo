@@ -14,6 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		816A91B6280AB0C400A8B49A /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		81838CBE2805D6FD00BF995E /* ScreenCaptureDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ScreenCaptureDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81838CC12805D6FD00BF995E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81838CC32805D6FD00BF995E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,11 +34,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		66D6A9702806D1E700F3C542 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		81838CB52805D6FD00BF995E = {
 			isa = PBXGroup;
 			children = (
+				816A91B6280AB0C400A8B49A /* README.md */,
 				81838CC02805D6FD00BF995E /* ScreenCaptureDemo */,
 				81838CBF2805D6FD00BF995E /* Products */,
+				66D6A9702806D1E700F3C542 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +87,8 @@
 			dependencies = (
 			);
 			name = ScreenCaptureDemo;
+			packageProductDependencies = (
+			);
 			productName = ScreenCaptureDemo;
 			productReference = 81838CBE2805D6FD00BF995E /* ScreenCaptureDemo.app */;
 			productType = "com.apple.product-type.application";
@@ -275,8 +287,10 @@
 				DEVELOPMENT_TEAM = 638KMSW77V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Accesso alla webcam per effettuare la registrazione video";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Accesso al microfono per effettuare la registrazione audio";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,8 +316,10 @@
 				DEVELOPMENT_TEAM = 638KMSW77V;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Accesso alla webcam per effettuare la registrazione video";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Accesso al microfono per effettuare la registrazione audio";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

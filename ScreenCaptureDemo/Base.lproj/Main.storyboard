@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="ScreenCaptureDemo" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -703,15 +704,141 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="ScreenCaptureDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl">
+                        <rect key="frame" x="0.0" y="0.0" width="739" height="425"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lUp-kl-fpi">
+                                <rect key="frame" x="10" y="10" width="599" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Webcam output file location will be shown here" drawsBackground="YES" id="hxc-Ld-0oa">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UG9-Qv-jfP">
+                                <rect key="frame" x="298" y="103" width="143" height="64"/>
+                                <subviews>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="F8X-6P-N5E">
+                                        <rect key="frame" x="-2" y="47" width="114" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Record screen" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Unw-ME-oaE">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="recordScreenCheckChanged:" target="XfG-lQ-9wD" id="By2-Rp-yXD"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4BD-9s-jTQ">
+                                        <rect key="frame" x="-2" y="23" width="124" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Record webcam" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="bGf-iB-QCi">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="recordWebcamCheckChanged:" target="XfG-lQ-9wD" id="53J-wm-sOQ"/>
+                                        </connections>
+                                    </button>
+                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SHa-sZ-nwg">
+                                        <rect key="frame" x="-2" y="-1" width="145" height="18"/>
+                                        <buttonCell key="cell" type="check" title="Record microphone" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vFJ-cH-kBQ">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="recordMicrophoneCheckChanged:" target="XfG-lQ-9wD" id="Vt4-lN-Pnk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="IJg-zj-HwB">
+                                <rect key="frame" x="50" y="182" width="639" height="223"/>
+                            </customView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wu5-wR-ikn">
+                                <rect key="frame" x="612" y="4" width="124" height="32"/>
+                                <buttonCell key="cell" type="push" title="Show in Finder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9Mj-9e-g35">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showCameraFileInFinder:" target="XfG-lQ-9wD" id="QjO-1e-Xp8"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="TbW-au-C0f">
+                                <rect key="frame" x="10" y="39" width="599" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Screen capture output file location will be shown here" drawsBackground="YES" id="5lv-HG-qkh">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="HqO-UI-UQy">
+                                <rect key="frame" x="612" y="33" width="124" height="32"/>
+                                <buttonCell key="cell" type="push" title="Show in Finder" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dbQ-Ad-T87">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showScreenCaptureFileInFinder:" target="XfG-lQ-9wD" id="BcY-e5-9gj"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="WET-69-HHY">
+                                <rect key="frame" x="313" y="61" width="114" height="32"/>
+                                <buttonCell key="cell" type="push" title="Start capture" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="R6U-aw-F5k">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startStopCaptureButtonPressed:" target="XfG-lQ-9wD" id="4Z9-5i-VZ1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="TbW-au-C0f" firstAttribute="leading" secondItem="lUp-kl-fpi" secondAttribute="leading" id="0c0-3H-Btj"/>
+                            <constraint firstItem="IJg-zj-HwB" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="42X-XK-VY4"/>
+                            <constraint firstAttribute="trailing" secondItem="IJg-zj-HwB" secondAttribute="trailing" constant="50" id="A1O-2t-91e"/>
+                            <constraint firstAttribute="bottom" secondItem="lUp-kl-fpi" secondAttribute="bottom" constant="10" id="BXO-90-SqO"/>
+                            <constraint firstItem="IJg-zj-HwB" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="50" id="CJT-C7-GTD"/>
+                            <constraint firstItem="WET-69-HHY" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="F0J-8E-y7d"/>
+                            <constraint firstItem="Wu5-wR-ikn" firstAttribute="leading" secondItem="lUp-kl-fpi" secondAttribute="trailing" constant="10" id="M5S-Oq-48U"/>
+                            <constraint firstItem="TbW-au-C0f" firstAttribute="top" secondItem="WET-69-HHY" secondAttribute="bottom" constant="8" symbolic="YES" id="NPv-HL-Wxd"/>
+                            <constraint firstItem="UG9-Qv-jfP" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="OEd-xS-nwD"/>
+                            <constraint firstItem="HqO-UI-UQy" firstAttribute="leading" secondItem="Wu5-wR-ikn" secondAttribute="leading" id="Uh1-fx-8Xg"/>
+                            <constraint firstAttribute="trailing" secondItem="Wu5-wR-ikn" secondAttribute="trailing" constant="10" id="d0z-14-fHb"/>
+                            <constraint firstItem="lUp-kl-fpi" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="e9B-XZ-mLJ"/>
+                            <constraint firstItem="lUp-kl-fpi" firstAttribute="top" secondItem="TbW-au-C0f" secondAttribute="bottom" constant="8" id="f16-Td-Prf"/>
+                            <constraint firstItem="UG9-Qv-jfP" firstAttribute="top" secondItem="IJg-zj-HwB" secondAttribute="bottom" constant="15" id="hki-kR-m8Z"/>
+                            <constraint firstItem="TbW-au-C0f" firstAttribute="trailing" secondItem="lUp-kl-fpi" secondAttribute="trailing" id="q42-yT-F4e"/>
+                            <constraint firstItem="Wu5-wR-ikn" firstAttribute="top" secondItem="HqO-UI-UQy" secondAttribute="bottom" constant="9" id="qef-tf-cAG"/>
+                            <constraint firstItem="HqO-UI-UQy" firstAttribute="trailing" secondItem="Wu5-wR-ikn" secondAttribute="trailing" id="sFr-nh-ORr"/>
+                            <constraint firstItem="WET-69-HHY" firstAttribute="top" secondItem="UG9-Qv-jfP" secondAttribute="bottom" constant="15" id="tNX-dJ-5oi"/>
+                            <constraint firstAttribute="bottom" secondItem="Wu5-wR-ikn" secondAttribute="bottom" constant="11" id="xzL-ga-8vZ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="destURLTextField" destination="lUp-kl-fpi" id="eIX-KJ-KIz"/>
+                        <outlet property="previewView" destination="IJg-zj-HwB" id="UaA-mW-hwM"/>
+                        <outlet property="recordMicrophoneCheck" destination="SHa-sZ-nwg" id="O8q-11-sDm"/>
+                        <outlet property="recordScreenCheck" destination="F8X-6P-N5E" id="HoV-f0-vle"/>
+                        <outlet property="recordWebcamCheck" destination="4BD-9s-jTQ" id="ReU-Pm-8AH"/>
+                        <outlet property="screenCaptureOutputUrlTextField" destination="5lv-HG-qkh" id="fae-if-Z0U"/>
+                        <outlet property="webcamOutputUrlTextField" destination="lUp-kl-fpi" id="FMF-EL-yZD"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="204.5" y="732.5"/>
         </scene>
     </scenes>
 </document>
